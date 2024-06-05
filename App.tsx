@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import * as FileSystem from 'expo-file-system';
 import { Asset } from 'expo-asset';
 import { Suspense, useEffect, useState } from 'react';
@@ -46,6 +46,7 @@ export default function App() {
       </View>
     );
   }
+
   return (
     <NavigationContainer>
       <Suspense
@@ -60,18 +61,22 @@ export default function App() {
             <Stack.Screen name="Home" 
               component={Home}
               options={
-                { headerTitle: 'Budget Bunny',
+                {
+                  headerTitle: () => (
+                    <View style={styles.headerTitleContainer}>
+                      <Image source={require('./assets/piggy-bank.png')} style={styles.headerLogo} />
+                      <Text style={styles.headerTitle}>Budget Bunny</Text>
+                    </View>
+                  ),
                   headerLargeTitle: true,
-                 }
+                }
               } />
           </Stack.Navigator>
         </SQLiteProvider>
       </Suspense>
     </NavigationContainer>
     )
-
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -79,5 +84,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  headerTitleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  headerLogo: {
+    width: 30,
+    height: 30,
+    marginRight: 8,
+    textAlign: 'center',
+    fontFamily: 'BebasNeue-Regular'
+  },
+  headerTitle: {
+    fontSize: 30,
+    fontWeight: 'bold',
   },
 });
