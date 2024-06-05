@@ -2,22 +2,21 @@ export const categoryColors: { [key: string]: string } = {
     Groceries: "#FFD700", // Gold
     Rent: "#FF6347", // Tomato
     Salary: "#32CD32", // LimeGreen
-    Freelancing: "#6495ED", // CornflowerBlue
     Utilities: "#00CED1", // DarkTurquoise
     Electronics: "#8A2BE2", // BlueViolet
     "Dining Out": "#FFA07A", // LightSalmon
-    "Breakfast Supplies": "#FFDEAD", // NavajoWhite
+    "Morning Breakfast": "#FFDEAD", // NavajoWhite
     "Household Items": "#F0E68C", // Khaki
-    "Christmas Gifts": "#FF69B4", // HotPink
-    "New Year Party Supplies": "#DB7093", // PaleVioletRed
-    "Thanksgiving Groceries": "#CD853F", // Peru
+    "Snacks": "#FF69B4", // HotPink
+    "Treat for Friends": "#DB7093", // PaleVioletRed
+    "Random Expense": "#CD853F", // Peru
     Bonus: "#6B8E23", // OliveDrab
-    "Consulting Work": "#4682B4", // SteelBlue
-    "Part-Time Job": "#DAA520", // GoldenRod
-    "Online Sales": "#20B2AA", // LightSeaGreen
-    "Freelance Writing": "#778899", // LightSlateGray
-    "End of Year Bonus": "#5F9EA0", // CadetBlue
-    "Thanksgiving Freelance": "#BDB76B", // DarkKhaki
+    "Internship": "#4682B4", // SteelBlue
+    "Money from parents": "#DAA520", // GoldenRod
+    "Stocks Profits": "#20B2AA", // LightSeaGreen
+    "Bank's Interest": "#778899", // LightSlateGray
+    "Other Bonuses": "#5F9EA0", // CadetBlue
+    "Return from Friend": "#BDB76B", // DarkKhaki
     Default: "#D3D3D3", // LightGray
   };
   
@@ -25,21 +24,20 @@ export const categoryColors: { [key: string]: string } = {
     Groceries: "🛒",
     Rent: "🏠",
     Salary: "💰",
-    Freelancing: "👨🏻‍💻",
     Utilities: "💡",
     Electronics: "🖥️",
     "Dining Out": "🍽️",
-    "Breakfast Supplies": "🥐",
+    "Morning Breakfast": "🥐",
     "Household Items": "🏡",
-    "Christmas Gifts": "🎁",
-    "New Year Party Supplies": "🎉",
-    "Thanksgiving Groceries": "🦃",
+    "Snacks": "🍿",
+    "Treat for Friends": "🎉",
+    "Random Expense" : "🫰" ,
     Bonus: "🎊",
-    "Consulting Work": "💼",
-    "Part-Time Job": "⌚",
-    "Online Sales": "🛒",
-    "Freelance Writing": "✍️",
-    "End of Year Bonus": "🍾",
-    "Thanksgiving Freelance": "🍂",
+    "Internship": "💼",
+    "Money from parents": "⌚",
+    "Stocks Profits": "👨🏻‍💻",
+    "Bank's Interest": "✍️",
+    "Other Bonuses": "🍾",
+    "Return from Friend": "🍂",
     Default: "🫰🏼",
   };

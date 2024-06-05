@@ -5,16 +5,14 @@ import { useSQLiteContext } from "expo-sqlite/next";
 import TransactionList from "../components/TransactionsList";
 import Card from "../components/ui/Card";
 import AddTransaction from "../components/AddTransaction";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
+import { setCategories, setTransactions, setTransactionsByMonth } from "../store/slices/transactionsSlice";
 
 export default function Home() {
-  const [categories, setCategories] = React.useState<Category[]>([]);
-  const [transactions, setTransactions] = React.useState<Transaction[]>([]);
-  const [transactionsByMonth, setTransactionsByMonth] =
-    React.useState<TransactionsByMonth>({
-      totalExpenses: 0,
-      totalIncome: 0,
-    });
-
+  const dispatch = useDispatch();
+  const { categories, transactions, transactionsByMonth } = useSelector((state: RootState) => state.transactions);  
+  
   const db = useSQLiteContext();
 
   React.useEffect(() => {
@@ -23,16 +21,17 @@ export default function Home() {
     });
   }, [db]);
 
+  
   async function getData() {
     const result = await db.getAllAsync<Transaction>(
       `SELECT * FROM Transactions ORDER BY date DESC;`
     );
-    setTransactions(result);
+    dispatch(setTransactions(result));
 
     const categoriesResult = await db.getAllAsync<Category>(
       `SELECT * FROM Categories;`
     );
-    setCategories(categoriesResult);
+    dispatch(setCategories(categoriesResult));
 
     const now = new Date();
     // Set to the first day of the current month
@@ -55,7 +54,7 @@ export default function Home() {
     `,
       [startOfMonthTimestamp, endOfMonthTimestamp]
     );
-    setTransactionsByMonth(transactionsByMonth[0]);
+    dispatch (setTransactionsByMonth(transactionsByMonth[0]));
   }
 
   async function deleteTransaction(id: number) {
@@ -149,7 +148,7 @@ const styles = StyleSheet.create({
   container: {
     marginBottom: 15,
     paddingBottom: 7,
-    // Add other container styles as necessary
+    paddingHorizontal: 15,
   },
   periodTitle: {
     fontSize: 20,
@@ -162,5 +161,5 @@ const styles = StyleSheet.create({
     color: "#333",
     marginBottom: 10,
   },
-  // Removed moneyText style since we're now generating it dynamically
+  
 });
