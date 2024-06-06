@@ -4,7 +4,7 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 const HeaderTitle = () => {
   return (
     <View style={styles.headerTitleContainer}>
-      <Image source={require('../assets/piggy-bank.png')} style={styles.headerLogo} />
+      <Image source={require('../../assets/piggy-bank.png')} style={styles.headerLogo} />
       <Text style={styles.headerTitle}>Budget Bunny</Text>
     </View>
   );
